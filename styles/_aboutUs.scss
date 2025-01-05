@@ -1,0 +1,13 @@
+.about {
+    &-data {
+      text-align: center;
+    }
+    &-img {
+      width: 280px;
+      justify-self: center;
+      //içerisindeki elemanları ! YATAYDA hizlamak için kullanılır.[center,start vb.]
+    }
+    .button {
+      margin-top: 30px;
+    }
+  }

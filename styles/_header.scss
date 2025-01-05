@@ -1,0 +1,54 @@
+@import "./variables";
+
+header {
+  width: 100%;
+  padding: 5px 20px;
+  position: fixed;
+  //elemanları istediğimiz gibi hizalamak için aktif etmemiz gereken etikettir. fixed ile. Aktif ettikten sonra yerleşmesi gereken yerleri belirlemeliyiz. top left vs.
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: transparent;
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+
+    //* logo
+    &-logo {
+//& kapsam classın elemanına erişmesini sağlıyor
+      color: $first-color;
+      font-size: $h2-font-size;
+      font-weight: $font-semi-bold;
+    }
+    //* list
+    &-list {
+      display: flex;
+      column-gap: 55px;
+      //gap 4 bir yandan değer vermeyi sağlar, colums gap de boşlukleri vereceği değerleri sütun olarak düşünür sadece dikey eksende boşluk verir
+    }
+
+    &-link {
+      color: $white-color;
+      font-weight: $font-medium;
+      transition: all 0.4s;
+      &:hover {
+        color: $first-color;
+      }
+    }
+  }
+}
+
+.blur-header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(23, 12%, 4%, 0.2);
+  backdrop-filter: blur(32px);
+  top: 0;
+  left: 0;
+  z-index: -1;
+    //bir ögenin arkasındaki görsel efektkleri uygulamak için (bulanıklaştırma, parlaklık, kontrast vb.) kullanılır. Bu özellik arka planın filtrelenmiş versiyonunu oluşturur ve özellikle cam efekti (glassmorphism) gibi modern tasarım trendlerinde kullanılır. BLUR=BULANIKLIK BRIGHTNESS=PARLAKLIK CONTRAST GRAYSCALE=GRİ TON YAPAR HUE-ROTATE=RENK TONUNU DEĞİŞTİRİR INVERT=RENKLERİ TERSİNE ÇEVİRİR OPACİTY=SAYDAMLIK EKLER SATURATE=DOYGUNLUK SEPIA=SEPYA FİLTRESİ çaloşması için arka plan saydam olmalı ya da rgba() olmalı. Yerleşeceği yeri de devamında belirtmek lazım
+}
